@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const backendUrl = 'https://localhost:3000/vocabs/';
+const backendUrl = 'http://localhost:3000/api/vocabs';
 
 export const viewAllWords = async () => {
     try {
@@ -13,7 +13,7 @@ export const viewAllWords = async () => {
 };
 
 export const viewWordById = async (id) => {
-    try{
+    try {
         const response = await axios.get(backendUrl + "/" + id);
         return response.data;
     } catch (err) {
@@ -47,8 +47,7 @@ export const deleteWord = async (id) => {
         const response = await axios.delete(backendUrl + "/" + id);
         return response.data;
     } catch (err) {
-        console.error(error);
+        console.error(err);
         return null;
     }
 };
-            
